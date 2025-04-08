@@ -3,10 +3,11 @@
 
 # Social Media Engagement: Predictive Model
 
-
 *Using emotional tone, temporal factors, and post metadata, this project uses a predictive model to better understand social media engagement. While the model achieves a strong correlation of 0.91 between predicted and actual engagement, the R² score of 0.36 reflects the complexity and variability of engagement behavior. Together, these metrics highlight key performance drivers and offer actionable insights to optimize future content strategies.*
 
 Notebook -> [`Social.Engagement.Analysis.Final`](https://github.com/AKapett/Social_Media_Engagement_Predictive_Model/blob/main/Social%20Engagement%20Analysis%20Final.md)
+
+---
 
 ## Key Features
 
@@ -18,6 +19,7 @@ Predicts engagement using XGBoost based on features like:
 - Compares predictions to actual engagement scores
 - Offers Tableau dashboards for interpretability
 
+---
 
 ## 🧪 Model Performance
 
@@ -33,6 +35,8 @@ XGBoost
 **Correlation**	     
 0.91
 
+---
+
 ## 📊 Dashboards
 
 Explore engagement predictions and insights:
@@ -42,7 +46,7 @@ Explore engagement predictions and insights:
 **🧠 Predictive Insights** -> [Social Media Engagement: Predictive Model](https://public.tableau.com/views/SocialMediaEngagementPredictiveModel/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
-
+---
 
 # 🤔 What do the numbers mean?
 
