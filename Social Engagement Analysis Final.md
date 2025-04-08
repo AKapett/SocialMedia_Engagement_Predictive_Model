@@ -1461,5 +1461,3 @@ I tested multiple tuning strategies, including regularization, boosting iteratio
 
 Future improvements could include incorporating follower count, content type, media presence (image/video), or platform algorithm behavior—all likely to add explanatory power. Overall, the project demonstrates how blending emotional and behavioral signals can yield reliable engagement forecasting foundations in social content strategy.
 
-Let me know if you want to include a performance table or model selection rationale summary too.
-
