@@ -6,6 +6,7 @@
 
 Using emotional tone, temporal factors, and post metadata, this project builds a machine learning pipeline to predict social media engagement with high correlation accuracy (0.91). The goal is to highlight performance drivers and offer insights for optimizing future content strategies.
 
+Notebook -> [`Social.Engagement.Analysis.Final`](https://github.com/AKapett/Social_Media_Engagement_Predictive_Model/blob/main/Social%20Engagement%20Analysis%20Final.md)
 
 ## Key Features
 
