@@ -4,7 +4,7 @@
 # Social Media Engagement: Predictive Model
 
 
-Using emotional tone, temporal factors, and post metadata, this project builds a machine learning pipeline to predict social media engagement with high correlation accuracy (0.91). The goal is to highlight performance drivers and offer insights for optimizing future content strategies.
+*Using emotional tone, temporal factors, and post metadata, this project uses a predictive model to better understand social media engagement. While the model achieves a strong correlation of 0.91 between predicted and actual engagement, the R² score of 0.36 reflects the complexity and variability of engagement behavior. Together, these metrics highlight key performance drivers and offer actionable insights to optimize future content strategies.*
 
 Notebook -> [`Social.Engagement.Analysis.Final`](https://github.com/AKapett/Social_Media_Engagement_Predictive_Model/blob/main/Social%20Engagement%20Analysis%20Final.md)
 
