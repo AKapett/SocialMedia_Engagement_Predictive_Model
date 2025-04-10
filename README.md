@@ -1,17 +1,26 @@
 # Predictive Engagement Analytics 
 ---
 
-**Tableau Dashboard**
-🔗 [Dashboard](https://public.tableau.com/views/SocialMediaEngagementRetweetWeighted/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-
----
 This self-directed project explores what drives social media engagement using a dataset of 731 posts from Kaggle. The goal: predict a custom Engagement Score defined as:
 
-Engagement Score = Likes + (2 × Retweets)
+> Engagement Score = Likes + (2 × Retweets)
 
 This weighting emphasizes the strategic value of shares over likes, focusing on visibility and amplification rather than surface-level popularity.
 
 The project covers full-cycle analytics. From data cleaning and feature engineering, to predictive modeling and interactive data storytelling with Tableau, my aim was to see how accurate we can predict engagement on a modest dataset.
+
+---
+
+**Notebook**
+
+[Quick Jump to File](https://github.com/AKapett/Social_Media_Engagement_Predictive_Model/blob/main/Cleaned%20SM%20Engagement%20Model.ipynb)
+
+
+
+**Tableau Dashboard**
+
+🔗 [Dashboard](https://public.tableau.com/views/SocialMediaEngagementRetweetWeighted/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
 
 ---
 
@@ -47,7 +56,7 @@ The project covers full-cycle analytics. From data cleaning and feature engineer
 - Used RepeatedKFold with GridSearchCV and RandomizedSearchCV
 - Applied SHAP for feature explainability and importance ranking
 
--> CatBoost ultimately delivered the best trade-off between accuracy and generalization.
+> CatBoost ultimately delivered the best trade-off between accuracy and generalization.
 
 --
 
