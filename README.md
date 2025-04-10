@@ -60,23 +60,12 @@ The project covers full-cycle analytics. From data cleaning and feature engineer
 
 ---
 
-## How it Helps
-
-This project demonstrates that meaningful insight and predictive modeling are possible even on modest datasets. 
-
-While this dataset lacks real-world volume and depth, the modeling pipeline is scalable to richer, real behavioral datasets.
-
-With future access to user-level context (followers, history, media type), this framework could evolve into a robust decision-support system for content planning and campaign optimization.
-
----
-
 ## Results
 
-**Model	Test R²	Train R² Notes**
-
-CatBoost	0.3442	0.5479	Strongest overall performance
-
-XGBoost	0.3302	0.7202	Higher variance, more overfit
+| Model     | Test R² | Train R² | Notes                            |
+|-----------|---------|----------|----------------------------------|
+| CatBoost  | **0.3442** | 0.5479   | Strongest overall performance     |
+| XGBoost   | 0.3302  | 0.7202   | More prone to overfitting        |
 
 ---
 
@@ -97,3 +86,12 @@ An interactive dashboard was built in Tableau to surface patterns in both total 
 
 🔗 [Dashboard](https://public.tableau.com/views/SocialMediaEngagementRetweetWeighted/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
+---
+
+## How it Helps
+
+This project demonstrates that meaningful insight and predictive modeling are possible even on modest datasets. 
+
+While this dataset lacks real-world volume and depth, the modeling pipeline is scalable to richer, real behavioral datasets.
+
+With future access to user-level context (followers, history, media type), this framework could evolve into a robust decision-support system for content planning and campaign optimization.
