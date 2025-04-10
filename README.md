@@ -1,13 +1,13 @@
 # Predictive Engagement Analytics 
 ---
 
-This self-directed project explores what drives social media engagement using a dataset of 731 posts from Kaggle. The goal: predict a custom Engagement Score defined as:
+This self-directed project explores what drives social media engagement using a dataset of 731 posts from Kaggle. The goal was to predict a custom Engagement Score defined as:
 
 > Engagement Score = Likes + (2 × Retweets)
 
 This weighting emphasizes the strategic value of shares over likes, focusing on visibility and amplification rather than surface-level popularity.
 
-The project covers full-cycle analytics. From data cleaning and feature engineering, to predictive modeling and interactive data storytelling with Tableau, my aim was to see how accurate we can predict engagement on a modest dataset.
+The project covers full-cycle analytics. From data cleaning and feature engineering, to predictive modeling and interactive datashboarding, my aim was to see how accurately I could predict engagement on a modest dataset.
 
 ---
 
@@ -26,11 +26,11 @@ The project covers full-cycle analytics. From data cleaning and feature engineer
 
 ## Assumptions & Limitations
 
-- **Engagement Score Weighting:** Likes + (2 × Retweets) was chosen to reflect shareability over vanity metrics
+- **Engagement Score Weighting:** Likes + (2 × Retweets) was chosen to reflect weighted importance over basic level metrics
 
-- **Limited user data:** 89% of users posted only once in this dataset, restricting behavioral pattern analysis. No metadata available for follower count, user activity, etc.
+- **Limited user data:** 89% of users posted only once in this dataset, restricting behavioral pattern analysis. No metadata available for follower count, user activity, or media type.
 
-- **Assumed duplication**: Identical posts across platforms were treated as duplicates in the absence of clear cross-post indicators and improbability of exact like and share count
+- **Assumed duplication**: Identical posts across platforms were treated as duplicates in the absence of clear cross-post indicators and improbability of exact like and share count.
 
 ---
 
@@ -58,19 +58,25 @@ The project covers full-cycle analytics. From data cleaning and feature engineer
 
 > CatBoost ultimately delivered the best trade-off between accuracy and generalization.
 
---
+---
+
+## How it Helps
+
+This project demonstrates that meaningful insight and predictive modeling are possible even on modest datasets. 
+
+While this dataset lacks real-world volume and depth, the modeling pipeline is scalable to richer, real behavioral datasets.
+
+With future access to user-level context (followers, history, media type), this framework could evolve into a robust decision-support system for content planning and campaign optimization.
+
+---
+
+## Results
 
 **Model	Test R²	Train R² Notes**
 
 CatBoost	0.3442	0.5479	Strongest overall performance
 
 XGBoost	0.3302	0.7202	Higher variance, more overfit
-
---
-
-**Model Performace w/o weighted Engagement Score provided similar results**
-
-Despite switching to an unweighted engagement definition, the model achieved close to identical R² score compared to the weighted version. However,  as expected, the MSE was lower due to smaller absolute error values from the smaller target magnitudes.
 
 ---
 
@@ -90,14 +96,4 @@ An interactive dashboard was built in Tableau to surface patterns in both total 
 
 
 🔗 [Dashboard](https://public.tableau.com/views/SocialMediaEngagementRetweetWeighted/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-
----
-
-## Why It Matters
-
-This project demonstrates that meaningful insight and predictive modeling are possible even on modest datasets. 
-
-While this dataset lacks real-world volume and depth, the modeling pipeline is scalable to richer, real behavioral datasets.
-
-With future access to user-level context (followers, history, media type), this framework could evolve into a robust decision-support system for content planning and campaign optimization.
 
