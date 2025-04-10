@@ -7,7 +7,7 @@ Engagement Score = Likes + (2 × Retweets)
 
 This weighting emphasizes the strategic value of shares over likes, focusing on visibility and amplification rather than surface-level popularity.
 
-The project covers full-cycle analytics — from data cleaning and feature engineering to predictive modeling and interactive data storytelling with Tableau.
+The project covers full-cycle analytics from data cleaning and feature engineering to predictive modeling and interactive data storytelling with Tableau.
 
 ---
 
@@ -17,7 +17,7 @@ The project covers full-cycle analytics — from data cleaning and feature engin
 
 - **Limited user data:** 89% of users posted only once, restricting behavioral pattern analysis
 
-- **Assumed duplication**: Identical posts across platforms were treated as duplicates in the absence of clear cross-post indicators
+- **Assumed duplication**: Identical posts across platforms were treated as duplicates in the absence of clear cross-post indicators and improbability of exact like and share count
 
 ---
 
