@@ -1,6 +1,10 @@
-# Predictive Engagement Analytics — Project Overview
+# Predictive Engagement Analytics 
 ---
 
+**Tableau Dashboard**
+🔗 [Dashboard](https://public.tableau.com/views/SocialMediaEngagementRetweetWeighted/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+---
 This self-directed project explores what drives social media engagement using a dataset of 731 posts from Kaggle. The goal: predict a custom Engagement Score defined as:
 
 Engagement Score = Likes + (2 × Retweets)
@@ -32,39 +36,32 @@ The project covers full-cycle analytics. From data cleaning and feature engineer
 
 **Feature Engineering**
 
-- Extracted temporal features (e.g., Day of Week, Daypart, Time Block)
-- Calculated content metrics (e.g., Hashtag Count, Char_Per_Hashtag)
-- Built interaction terms (e.g., Sentiment × Time) for behavioral nuance
+- Derived temporal features like Daypart, Time Block, and Day of Week
+- Extracted content structure features (Char_Per_Hashtag, Post_Char_Count)
+- Created interaction terms (e.g., Sentiment × Hashtag Structure) to capture nuanced behavioral patterns
 
 
 **Modeling**
 
 - Trained and tuned XGBoost and CatBoost regressors
-- Used GridSearchCV, RandomizedSearchCV, and RepeatedKFold for validation
-- Applied SHAP to guide feature selection and reduce noise
+- Used RepeatedKFold with GridSearchCV and RandomizedSearchCV
+- Applied SHAP for feature explainability and importance ranking
 
+-> CatBoost ultimately delivered the best trade-off between accuracy and generalization.
 
 --
 
 **Model	Test R²	Train R² Notes**
 
-CatBoost (Final)	0.4008	0.5605	Best generalization + categorical support
+CatBoost	0.3442	0.5479	Strongest overall performance
 
-XGBoost	0.3626	0.7730	prone to overfitting
-
-CatBoost (Time Block only)	0.3609	0.4749	Simpler time abstraction, decent generalization
+XGBoost	0.3302	0.7202	Higher variance, more overfit
 
 --
 
 **Model Performace w/o weighted Engagement Score provided similar results**
 
-Test R² Score: 0.4004
-
-Train R² Score: 0.5843
-
-Test MSE: 259.49
-
-Despite switching to an unweighted engagement definition, the model achieved a nearly identical R² score compared to the weighted version. However,  as expected, the MSE was lower due to smaller absolute error values from the smaller target magnitudes.
+Despite switching to an unweighted engagement definition, the model achieved close to identical R² score compared to the weighted version. However,  as expected, the MSE was lower due to smaller absolute error values from the smaller target magnitudes.
 
 ---
 
@@ -89,7 +86,9 @@ An interactive dashboard was built in Tableau to surface patterns in both total 
 
 ## Why It Matters
 
-This project demonstrates that models can be built even on modest datasets. With a focus on feature clarity, explainability, and strategic alignment, this workflow shows how analytics can help marketers and content creators optimize their strategy to not only understand their metrics, but plan content campaigns with data-driven direction.
+This project demonstrates that meaningful insight and predictive modeling are possible even on modest datasets. 
 
-I believe with additional user-level data (e.g., followers, engagement history, posting frequency), this pipeline could scale into a powerful decision-support tool for content and campaign teams.
+While this dataset lacks real-world volume and depth, the modeling pipeline is scalable to richer, real behavioral datasets.
+
+With future access to user-level context (followers, history, media type), this framework could evolve into a robust decision-support system for content planning and campaign optimization.
 
