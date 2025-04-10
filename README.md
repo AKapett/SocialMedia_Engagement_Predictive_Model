@@ -23,29 +23,30 @@ The project covers full-cycle analytics. From data cleaning and feature engineer
 
 ## Workflow
 
-**1. Data Cleaning & Preparation**
+**Data Cleaning & Preparation**
 
 - Removed misleading duplicates (same timestamp, content, but different platform or country)
 - Validated time values and binned post length into categorical buckets
 - Grouped rare countries and sentiments under "Other"
 
 
-**2. Feature Engineering**
+**Feature Engineering**
 
 - Extracted temporal features (e.g., Day of Week, Daypart, Time Block)
 - Calculated content metrics (e.g., Hashtag Count, Char_Per_Hashtag)
 - Built interaction terms (e.g., Sentiment × Time) for behavioral nuance
 
 
-**3. Modeling**
+**Modeling**
 
 - Trained and tuned XGBoost and CatBoost regressors
 - Used GridSearchCV, RandomizedSearchCV, and RepeatedKFold for validation
 - Applied SHAP to guide feature selection and reduce noise
 
+
 --
 
-**Model	Test R²	Train R²	Notes**
+**Model	Test R²	Train R² Notes**
 
 CatBoost (Final)	0.4008	0.5605	Best generalization + categorical support
 
@@ -53,8 +54,9 @@ XGBoost	0.3626	0.7730	prone to overfitting
 
 CatBoost (Time Block only)	0.3609	0.4749	Simpler time abstraction, decent generalization
 
+--
 
-*Model Performace w/o weighted Engagement Score provided similar results*
+**Model Performace w/o weighted Engagement Score provided similar results**
 
 Test R² Score: 0.4004
 
