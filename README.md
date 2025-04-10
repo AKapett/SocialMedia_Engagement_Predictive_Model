@@ -1,54 +1,90 @@
+# Predictive Engagement Analytics — Project Overview
+---
 
+This self-directed project explores what drives social media engagement using a dataset of 731 posts from Kaggle. The goal: predict a custom Engagement Score defined as:
 
+Engagement Score = Likes + (2 × Retweets)
 
-# Social Media Engagement: Predictive Model
+This weighting emphasizes the strategic value of shares over likes, focusing on visibility and amplification rather than surface-level popularity.
 
-*Using emotional tone, temporal factors, and post metadata, this project uses a predictive model to better understand social media engagement. While the model achieves a strong correlation of 0.91 between predicted and actual engagement, the R² score of 0.36 reflects the complexity and variability of engagement behavior. Together, these metrics highlight key performance drivers and offer actionable insights to optimize future content strategies.*
-
-Notebook -> [`Social.Engagement.Analysis.Final`](https://github.com/AKapett/Social_Media_Engagement_Predictive_Model/blob/main/Social%20Engagement%20Analysis%20Final.md)
+The project covers full-cycle analytics — from data cleaning and feature engineering to predictive modeling and interactive data storytelling with Tableau.
 
 ---
 
-## Key Features
+## Assumptions & Limitations
 
-Predicts engagement using XGBoost based on features like:
+- **Engagement Score Weighting:** Likes + (2 × Retweets) was chosen to reflect shareability over vanity metrics
 
-- Emotional sentiment scores
-- Daypart and platform behavior
-- Hashtag-to-character ratios
-- Compares predictions to actual engagement scores
-- Offers Tableau dashboards for interpretability
+- **Limited user data:** 89% of users posted only once, restricting behavioral pattern analysis
+
+- **Assumed duplication**: Identical posts across platforms were treated as duplicates in the absence of clear cross-post indicators
 
 ---
 
-## 🧪 Model Performance
+## Workflow Summary
 
-**Model Used**	     
-XGBoost
+**1. Data Cleaning & Preparation**
 
-**R² Score**	       
-0.36
+- Removed misleading duplicates (same timestamp, content, but different platform or country)
 
-**MSE**	             
-493.73
+- Validated time values and binned post length into categorical buckets
 
-**Correlation**	     
-0.91
+- Grouped rare countries and sentiments under "Other"
+
+
+**2. Feature Engineering**
+
+- Extracted temporal features (e.g., Day of Week, Daypart, Time Block)
+
+- Calculated content metrics (e.g., Hashtag Count, Char_Per_Hashtag)
+
+- Grouped infrequent sentiment labels for cleaner modeling
+
+- Built interaction terms (e.g., Sentiment × Time) for behavioral nuance
+
+
+**3. Modeling**
+
+- Trained and tuned XGBoost and CatBoost regressors
+
+- Used GridSearchCV, RandomizedSearchCV, and RepeatedKFold for validation
+
+- Applied SHAP to guide feature selection and reduce noise
+
+- Model	Test R²	Train R²	Notes
+
+--
+
+CatBoost (Final)	0.4008	0.5605	Best generalization + categorical support
+
+XGBoost	0.3626	0.7730	Strong fit, prone to overfitting
+
+CatBoost (Time Block only)	0.3609	0.4749	Simpler time abstraction, decent generalization
 
 ---
 
-## 📊 Dashboards
+## Tableau Dashboard
 
-Explore engagement predictions and insights:
+An interactive dashboard was built in Tableau to surface patterns in both total and per-post engagement. Users can filter by country, platform, sentiment, day, post length, and more.
 
-**📈 Engagement Analysis** -> [Social Media Engagement Dashboard (Interactive)](https://public.tableau.com/views/SocialMediaEngagementDashboard_17440749011660/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+**Key Features**
 
-**🧠 Predictive Insights** -> [Social Media Engagement: Predictive Model](https://public.tableau.com/views/SocialMediaEngagementPredictiveModel/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+- Toggle between SUM and AVG engagement
 
+- View engagement by daypart, platform, sentiment, post length, and month
+
+- Visual breakdown of likes vs. retweets
+
+- Dynamic tooltips and filters for strategic exploration
+
+
+🔗 [Dashboard](https://public.tableau.com/views/SocialMediaEngagementRetweetWeighted/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
 
-# 🤔 What do the numbers mean?
+## Why It Matters
 
-This project shows that emotional and temporal metadata can be strong predictors of engagement. It empowers teams to test new creative ideas and refine posting strategies using real-world behavioral signals.
+This project demonstrates that models can be built even on modest datasets. With a focus on feature clarity, explainability, and strategic alignment, this workflow shows how analytics can help marketers and content creators optimize their strategy to not only understand their metrics, but plan content campaigns with data-driven direction.
+
+I believe with additional user-level data (e.g., followers, engagement history, posting frequency), this pipeline could scale into a powerful decision-support tool for content and campaign teams.
 
