@@ -7,7 +7,7 @@ Engagement Score = Likes + (2 × Retweets)
 
 This weighting emphasizes the strategic value of shares over likes, focusing on visibility and amplification rather than surface-level popularity.
 
-The project covers full-cycle analytics from data cleaning and feature engineering to predictive modeling and interactive data storytelling with Tableau.
+The project covers full-cycle analytics. From data cleaning and feature engineering, to predictive modeling and interactive data storytelling with Tableau, my aim was to see how accurate we can predict engagement on a modest dataset.
 
 ---
 
@@ -15,51 +15,54 @@ The project covers full-cycle analytics from data cleaning and feature engineeri
 
 - **Engagement Score Weighting:** Likes + (2 × Retweets) was chosen to reflect shareability over vanity metrics
 
-- **Limited user data:** 89% of users posted only once, restricting behavioral pattern analysis
+- **Limited user data:** 89% of users posted only once in this dataset, restricting behavioral pattern analysis. No metadata available for follower count, user activity, etc.
 
 - **Assumed duplication**: Identical posts across platforms were treated as duplicates in the absence of clear cross-post indicators and improbability of exact like and share count
 
 ---
 
-## Workflow Summary
+## Workflow
 
 **1. Data Cleaning & Preparation**
 
 - Removed misleading duplicates (same timestamp, content, but different platform or country)
-
 - Validated time values and binned post length into categorical buckets
-
 - Grouped rare countries and sentiments under "Other"
 
 
 **2. Feature Engineering**
 
 - Extracted temporal features (e.g., Day of Week, Daypart, Time Block)
-
 - Calculated content metrics (e.g., Hashtag Count, Char_Per_Hashtag)
-
-- Grouped infrequent sentiment labels for cleaner modeling
-
 - Built interaction terms (e.g., Sentiment × Time) for behavioral nuance
 
 
 **3. Modeling**
 
 - Trained and tuned XGBoost and CatBoost regressors
-
 - Used GridSearchCV, RandomizedSearchCV, and RepeatedKFold for validation
-
 - Applied SHAP to guide feature selection and reduce noise
-
-- Model	Test R²	Train R²	Notes
 
 --
 
+**Model	Test R²	Train R²	Notes**
+
 CatBoost (Final)	0.4008	0.5605	Best generalization + categorical support
 
-XGBoost	0.3626	0.7730	Strong fit, prone to overfitting
+XGBoost	0.3626	0.7730	prone to overfitting
 
 CatBoost (Time Block only)	0.3609	0.4749	Simpler time abstraction, decent generalization
+
+
+*Model Performace w/o weighted Engagement Score provided similar results*
+
+Test R² Score: 0.4004
+
+Train R² Score: 0.5843
+
+Test MSE: 259.49
+
+Despite switching to an unweighted engagement definition, the model achieved a nearly identical R² score compared to the weighted version. However,  as expected, the MSE was lower due to smaller absolute error values from the smaller target magnitudes.
 
 ---
 
