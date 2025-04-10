@@ -13,7 +13,7 @@ The project covers full-cycle analytics. From data cleaning and feature engineer
 
 **Notebook**
 
-[Quick Jump to File](https://github.com/AKapett/Social_Media_Engagement_Predictive_Model/blob/main/Cleaned%20SM%20Engagement%20Model.ipynb)
+🔗 [Quick Jump to File](https://github.com/AKapett/Social_Media_Engagement_Predictive_Model/blob/main/Cleaned%20SM%20Engagement%20Model.ipynb)
 
 
 
